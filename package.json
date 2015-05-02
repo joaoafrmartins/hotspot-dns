@@ -1,0 +1,32 @@
+{
+  "name": "hotspot-dns",
+  "version": "0.0.0",
+  "main": "lib",
+  "bin": {
+    "hotspot-dns": "bin/server"
+  },
+  "scripts": {
+    "start": "hotspot-dns"
+  },
+  "description": "Hotspot Dns",
+  "keywords": [
+    "hotspot",
+    "dns"
+  ],
+  "dependencies": {
+    "a-file-logger-property": "",
+    "a-npm-config": "",
+    "async": "",
+    "redis": "",
+    "dnsd": ""
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/joaoafrmartins/hotspot-dns",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaoafrmartins/hotspot-dns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joaoafrmartins/hotspot-dns/issues"
+  }
+}

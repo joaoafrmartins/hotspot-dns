@@ -1,0 +1,33 @@
+#!/usr/bin/env coffee
+
+{ resolve } = require 'path'
+
+{ exec } = require 'child_process'
+
+config = require('a-npm-config')(
+
+  resolve(__dirname, '..', 'lib', 'config'),
+
+  ['plugins']
+
+)
+
+exec resolve __dirname, '..', 'scripts', 'start.sh'
+
+Server = require '../lib/server'
+
+new Server (err, server) ->
+
+  shutdown = server.shutdown or () ->
+
+    process.exit 0
+
+  config.kill.map (signal) ->
+
+    process.on signal, () ->
+
+      exec resolve __dirname, '..', 'scripts', 'stop.sh'
+
+      shutdown()
+
+, config
