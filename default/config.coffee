@@ -11,6 +11,6 @@ module.exports =
     "shutdown":
       "timeout": 3000
     "logger":
-      "file": "#{process.env.PWD}/data/hotspot-dns/server.log"
+      "file": "#{process.env.PWD}/log/hotspot-dns.log"
     "session":
-      "socket": "#{process.env.PWD}/data/redis/redis-server.sock"
+      "socket": ""

@@ -2,7 +2,9 @@
 
 module.exports = (next) ->
 
-  client = createClient @config.plugins.session
+  socket = @config.plugins.session.socket
+
+  client = createClient socket
 
   process.on "hotspot-dns:shutdown:dettach", () ->
 
@@ -11,6 +13,8 @@ module.exports = (next) ->
     process.emit "hotspot-dns:shutdown:dettached", "session"
 
   client.on "end", () =>
+
+    @console.info "redis", "end", socket
 
     process.emit "hotspot-dns:shutdown:dettached", "session"
 
@@ -22,7 +26,7 @@ module.exports = (next) ->
 
     { host, port } = @config.plugins.session
 
-    @console.info "redis", "connected", host, port
+    @console.info "redis", "connected", socket
 
     process.emit "hotspot-dns:shutdown:attach", "session"
 
